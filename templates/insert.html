@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Add Martyr
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h2>Add a New Martyr</h2>
+    <form action="{{ url_for('insert') }}" method="post" class="col s12">
+        <div class="row">
+            <div class="input-field col s6">
+                <input id="first_name" name="first_name" type="text" class="validate" required>
+                <label for="first_name">First Name</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="last_name" name="last_name" type="text" class="validate" required>
+                <label for="last_name">Last Name</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <input id="birth_date" name="birth_date" type="text" class="datepicker">
+                <label for="birth_date">Birth Date</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="birth_place" name="birth_place" type="text" class="validate">
+                <label for="birth_place">Birth Place</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <input id="burial_place" name="burial_place" type="text" class="validate">
+                <label for="burial_place">Burial Place</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="martyrdom_date" name="martyrdom_date" type="text" class="datepicker">
+                <label for="martyrdom_date">Martyrdom Date</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="martyrdom_place" name="martyrdom_place" type="text" class="validate">
+                <label for="martyrdom_place">Martyrdom Place</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea id="achievements" name="achievements" class="materialize-textarea"></textarea>
+                <label for="achievements">Achievements</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea id="will" name="will" class="materialize-textarea"></textarea>
+                <label for="will">Will</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea id="biography" name="biography" class="materialize-textarea"></textarea>
+                <label for="biography">Biography</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="photos" name="photos" type="text" class="validate">
+                <label for="photos">Photos (comma-separated URLs)</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="main_photo" name="main_photo" type="text" class="validate">
+                <label for="main_photo">Main Photo URL</label>
+            </div>
+        </div>
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+        </button>
+    </form>
+</div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.datepicker');
+        var instances = M.Datepicker.init(elems, {});
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Update Martyr Details
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h2>Update Martyr Details</h2>
+    <form action="{{ url_for('update', id=martyr.id) }}" method="post">
+        <div class="input-field">
+            <label for="first_name">First Name</label>
+            <input id="first_name" name="first_name" type="text" value="{{ martyr.first_name }}" required>
+        </div>
+        <div class="input-field">
+            <label for="last_name">Last Name</label>
+            <input id="last_name" name="last_name" type="text" value="{{ martyr.last_name }}" required>
+        </div>
+        <div class="input-field">
+            <label for="birth_date">Birth Date</label>
+            <input id="birth_date" name="birth_date" type="date" value="{{ martyr.birth_date }}">
+        </div>
+        <div class="input-field">
+            <label for="birth_place">Birth Place</label>
+            <input id="birth_place" name="birth_place" type="text" value="{{ martyr.birth_place }}">
+        </div>
+        <div class="input-field">
+            <label for="burial_place">Burial Place</label>
+            <input id="burial_place" name="burial_place" type="text" value="{{ martyr.burial_place }}">
+        </div>
+        <div class="input-field">
+            <label for="martyrdom_date">Martyrdom Date</label>
+            <input id="martyrdom_date" name="martyrdom_date" type="date" value="{{ martyr.martyrdom_date }}">
+        </div>
+        <div class="input-field">
+            <label for="martyrdom_place">Martyrdom Place</label>
+            <input id="martyrdom_place" name="martyrdom_place" type="text" value="{{ martyr.martyrdom_place }}">
+        </div>
+        <div class="input-field">
+            <label for="achievements">Achievements</label>
+            <textarea id="achievements" name="achievements" class="materialize-textarea">{{ martyr.achievements }}</textarea>
+        </div>
+        <div class="input-field">
+            <label for="will">Will</label>
+            <textarea id="will" name="will" class="materialize-textarea">{{ martyr.will }}</textarea>
+        </div>
+        <div class="input-field">
+            <label for="biography">Biography</label>
+            <textarea id="biography" name="biography" class="materialize-textarea">{{ martyr.biography }}</textarea>
+        </div>
+        <div class="input-field">
+            <label for="photos">Photos (comma-separated URLs)</label>
+            <input id="photos" name="photos" type="text" value="{{ martyr.photos }}">
+        </div>
+        <div class="input-field">
+            <label for="main_photo">Main Photo URL</label>
+            <input id="main_photo" name="main_photo" type="text" value="{{ martyr.main_photo }}">
+        </div>
+        <button class="btn waves-effect waves-light" type="submit">Update Details
+            <i class="material-icons right">update</i>
+        </button>
+    </form>
+</div>
+{% endblock %}
