@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}
+Martyr Details
+{% endblock title %}
+
+{% block style %}
+<style>
+    /* Custom styles for the martyr details page */
+    .martyr-details {
+        margin: 2rem auto;
+        max-width: 800px;
+        padding: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+    }
+    .martyr-photo {
+        max-width: 100%;
+        height: auto;
+        border-radius: 4px;
+    }
+</style>
+{% endblock style %}
+
+{% block body %}
+<div class="martyr-details">
+    <h2>{{ martyr.first_name }} {{ martyr.last_name }}</h2>
+    {% if martyr.main_photo %}
+    <h1>
+        {{martyr.main_photo}}
+    </h1>
+    <img src="{{ url_for('static', filename=martyr.main_photo) | replace('/static/static', '/static')}} " alt="Photo of {{ martyr.first_name }}" class="martyr-photo">
+    {% else %}
+    <p>No photo available.</p>
+    {% endif %}
+    <p><strong>Birth Date:</strong> {{ martyr.birth_date.strftime('%B %d, %Y') if martyr.birth_date else 'Date not available' }}</p>
+    <p><strong>Birth Place:</strong> {{ martyr.birth_place or 'Place not available' }}</p>
+    <p><strong>Burial Place:</strong> {{ martyr.burial_place or 'Place not available' }}</p>
+    <p><strong>Martyrdom Date:</strong> {{ martyr.martyrdom_date.strftime('%B %d, %Y') if martyr.martyrdom_date else 'Date not available' }}</p>
+    <p><strong>Martyrdom Place:</strong> {{ martyr.martyrdom_place or 'Place not available' }}</p>
+    <h3>Achievements:</h3>
+    <p>{{ martyr.achievements or 'No achievements listed' }}</p>
+    <h3>Will:</h3>
+    <p>{{ martyr.will or 'No will available' }}</p>
+    <h3>Biography:</h3>
+    <p>{{ martyr.biography or 'No biography available' }}</p>
+</div>
+{% endblock %}

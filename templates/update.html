@@ -7,7 +7,7 @@ Update Martyr Details
 {% block body %}
 <div class="container">
     <h2>Update Martyr Details</h2>
-    <form action="{{ url_for('update', id=martyr.id) }}" method="post">
+    <form action="{{ url_for('update', id=martyr.id) }}" method="post" enctype="multipart/form-data">
         <div class="input-field">
             <label for="first_name">First Name</label>
             <input id="first_name" name="first_name" type="text" value="{{ martyr.first_name }}" required>
